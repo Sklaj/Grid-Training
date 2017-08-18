@@ -405,6 +405,7 @@ textarea {
   /* 2 */
 }
 
+/*KOD Pisany*/
 * {
   box-sizing: border-box;
 }
@@ -423,11 +424,8 @@ textarea {
 }
 
 .grid-container .row:before, .grid-container .row:after {
-  content: "";
-  display: table;
-}
-
-.grid-container .row:after {
+  content: '';
+  display: block;
   clear: both;
 }
 
@@ -487,13 +485,6 @@ textarea {
   width: 8.33333%;
 }
 
-@media (max-width: 640px) {
-  .grid-container .row[class*='col-'] {
-    float: none;
-    width: 100%;
-  }
-}
-
 .grid-container .blue {
   background-color: deepskyblue;
 }
@@ -517,6 +508,13 @@ textarea {
 .content {
   color: black;
   padding-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .grid-container .row [class*='col-'] {
+    float: none;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.min.css.map */

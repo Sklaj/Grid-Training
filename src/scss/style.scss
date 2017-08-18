@@ -29,20 +29,13 @@
 // @import "partials/print";
 
 
-// KOD Pisany
+/*KOD Pisany*/
 
 *{
   box-sizing: border-box;
 }
 
-@mixin cleafix {
-  &:before, &:after {
-    content: '';
-    display: block;
-    clear: both;
-    margin: 0;
-  }
-}
+
 
 
 $columns: 12;
@@ -62,7 +55,11 @@ $columnWidth: $containerFullWidth/$columns;
   .row {
     overflow: hidden;
 
-    @include clearfix;
+    &:before, &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
     [class*='col-']{
       min-height: 1px;
@@ -80,12 +77,7 @@ $columnWidth: $containerFullWidth/$columns;
      }
       $i: $i - 1;
      }
-     @media (max-width: 640px){
-       &[class*='col-']{
-         float: none;
-         width: 100%;
-       }
-     }
+
   }
 
   .blue {
@@ -112,7 +104,12 @@ $columnWidth: $containerFullWidth/$columns;
 }
 
 
-
+@media (max-width: 640px){
+  .grid-container .row [class*='col-']{
+    float: none;
+    width: 100%;
+  }
+}
 
 
 
