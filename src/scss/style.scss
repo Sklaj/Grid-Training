@@ -1,0 +1,125 @@
+//variable
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//reset, normalize, helper-class
+@import "partials/normalize";
+
+// //grid
+// // @import "grid/grid";
+//
+// //global layouts
+// @import "partials/global-class";
+//
+// //layouts'
+// @import "layout/global-layout";
+// @import "layout/header";
+// @import "layout/sidebar";
+// @import "layout/footer";
+//
+// //indywidual pages
+// //@import "layout/pages/...";
+//
+// //elements
+// @import "components/forms";
+//
+// //media
+// @import "partials/print";
+
+
+// KOD Pisany
+
+*{
+  box-sizing: border-box;
+}
+
+@mixin cleafix {
+  &:before, &:after {
+    content: '';
+    display: block;
+    clear: both;
+    margin: 0;
+  }
+}
+
+
+$columns: 12;
+$containerFullWidth: 100%;
+$containerWidth: 1200px;
+
+$columnWidth: $containerFullWidth/$columns;
+
+.grid-container{
+  width: 100%;
+  max-width: 100%;
+  background: green;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+
+  .row {
+    overflow: hidden;
+
+    @include clearfix;
+
+    [class*='col-']{
+      min-height: 1px;
+      float: left;
+      margin-bottom: -99999px;
+      padding-bottom: 99999px;
+      border-top: 2px solid white;
+    }
+
+    $i: $columns; // iloś kolumn
+
+    @while $i > 0{
+     .col-#{$i}{
+       width: $i * $columnWidth;
+     }
+      $i: $i - 1;
+     }
+     @media (max-width: 640px){
+       &[class*='col-']{
+         float: none;
+         width: 100%;
+       }
+     }
+  }
+
+  .blue {
+    background-color: deepskyblue;
+  }
+  .violet {
+    background-color: blueviolet;
+  }
+  .darkblue {
+    background-color: dodgerblue;
+  }
+  .yelow {
+    background-color: lightyellow;
+  }
+}
+
+.mar{
+  border-bottom: 2px solid white;
+}
+
+.content {
+  color: black;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//
